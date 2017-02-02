@@ -11,10 +11,10 @@ import { Component, EventEmitter } from '@angular/core';
   Counter Component
   <div>
   
-  // solution2
+  <!--// solution2-->
   <!--<app-counter [counter]= "ComponentCounterValue" (counterChangedEvent)="counterValueChanged($event)"></app-counter>-->
   
-  // solution1
+  <!--// solution1-->
   <app-counter [counter]= "ComponentCounterValue" (counterChangedEvent)="ComponentCounterValue=$event"></app-counter>
   </div>
   <br/>
