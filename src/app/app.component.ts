@@ -1,4 +1,4 @@
-import { Component, EventEmitter } from '@angular/core';
+import { Component} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -11,16 +11,15 @@ import { Component, EventEmitter } from '@angular/core';
   Counter Component
   <div>
   
-  <!--// solution2-->
-  <!--<app-counter [counter]= "ComponentCounterValue" (counterChangedEvent)="counterValueChanged($event)"></app-counter>-->
   
-  <!--// solution1-->
   <app-counter [counter]= "ComponentCounterValue" (counterChangedEvent)="ComponentCounterValue=$event"></app-counter>
   </div>
   <br/>
   <br/>
-  
   Component Counter Value = {{ ComponentCounterValue }} 
+  
+  
+  <app-upper [items]="['bbb', 'ccc']" ></app-upper>
   
   `,
 
