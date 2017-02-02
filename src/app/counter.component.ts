@@ -9,44 +9,45 @@ import {Component, Input, EventEmitter, Output} from '@angular/core';
   <button (click)="decrease()"> - </button>
   `,
 
+  outputs: ['counterChangedEvent'],
   styles: []
-
 })
 
 export class CounterComponent {
 
   countValue =  0;
-  counterChanged: EventEmitter<number>;
+  counterChangedEvent: EventEmitter<number>;
 
   constructor() {
-    this.counterChanged = new EventEmitter();
+    this.counterChangedEvent = new EventEmitter();
   }
 
   @Input() set counter(value :number) {
     if (value > 0) {
       this.countValue = value;
-      this.counterChanged.emit(this.countValue);
+      this.counterChangedEvent.emit(this.countValue);
+
+      console.log("set initial value from Parent component: " + value);
     }
   }
 
-  @Output('') counterChange: number;
 
-  changeCounterValue(value: number) {
+  private _changeCounterValue(value: number) {
 
     this.countValue += value;
-    this.counterChanged.emit(this.countValue);
+    this.counterChangedEvent.emit(this.countValue);
   }
 
   increase() {
-    this.changeCounterValue(1);
+    this._changeCounterValue(1);
   }
 
   decrease() {
-    this.changeCounterValue(-1);
+    this._changeCounterValue(-1);
   }
 
-
 }
+
 
 
 
